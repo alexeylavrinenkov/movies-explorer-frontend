@@ -1,7 +1,7 @@
 import React from 'react';
-import './App.css';
+import './NavTab.css';
 
-const App = () => {
+const NavTab = () => {
   return (
     <div>
 
@@ -9,4 +9,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default NavTab;

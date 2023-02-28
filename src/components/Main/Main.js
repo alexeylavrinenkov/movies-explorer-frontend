@@ -1,7 +1,7 @@
 import React from 'react';
-import './App.css';
+import './Main.css';
 
-const App = () => {
+const Main = () => {
   return (
     <div>
 
@@ -9,4 +9,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Main;

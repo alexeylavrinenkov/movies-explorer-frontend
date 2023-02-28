@@ -1,7 +1,7 @@
 import React from 'react';
-import './App.css';
+import './Promo.css';
 
-const App = () => {
+const Promo = () => {
   return (
     <div>
 
@@ -9,4 +9,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Promo;
