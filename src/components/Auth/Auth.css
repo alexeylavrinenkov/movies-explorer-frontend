@@ -1,0 +1,136 @@
+.auth {
+  box-sizing: border-box;
+  max-width: 536px;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.auth__container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.auth__top {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.auth__bottom {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth__logo-link {
+  line-height: 0;
+}
+
+.auth__logo {
+  width: 38px;
+  height: 38px;
+}
+
+.auth__title {
+  margin: 40px 0;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.auth__form {
+  margin: 0 0 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth__error-text {
+  display: none;
+  margin: 0 auto 20px;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.2;
+  color: #EE3465;
+}
+
+.auth__error-text_active {
+  display: block;
+}
+
+.auth__submit-button {
+  width: 100%;
+  margin: 0 auto 16px;
+  padding: 13px 20px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.2;
+  text-align: center;
+  color: white;
+  background: #4285F4;
+  border: none;
+  border-radius: 3px;
+}
+
+.auth__submit-button_inactive {
+  background: #262626;
+  color: #525252;
+}
+
+.auth__link-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.auth__question {
+  margin: 0 6px 0 0;
+  color: #8B8B8B;
+}
+
+.auth__link {
+  margin: 0;
+  color: #4285F4;
+}
+
+@media screen and (max-width: 1024px) {
+  .auth {
+    max-width: 456px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .auth {
+    width: 100%;
+    padding: 56px 30px 30px;
+  }
+
+  .auth__logo-link {
+    align-self: center;
+  }
+
+  .auth__title {
+    margin: 50px auto 80px;
+    text-align: center;
+  }
+
+  .auth__submit-button {
+    margin: 0 0 14px;
+    padding: 15px 20px;
+    font-size: 12px;
+  }
+
+  .auth__link-container {
+    font-size: 12px;
+  }
+
+  .auth__question {
+    margin: 0 7px 0 0;
+  }
+}

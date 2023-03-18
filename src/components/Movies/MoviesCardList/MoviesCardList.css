@@ -1,0 +1,53 @@
+.movies-card-list {
+  padding-top: 70px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.movies-card-list__list {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 37px;
+  column-gap: 24px;
+}
+
+.movies-card-list__not-found {
+  display: none;
+  margin: 0 auto;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #8B8B8B;
+}
+
+.movies-card-list__not-found_active {
+  display: block;
+}
+
+@media screen and (max-width: 1280px) {
+  .movies-card-list {
+    padding-bottom: 30px;
+  }
+
+  .movies-card-list__list {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 30px;
+    column-gap: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .movies-card-list {
+    padding: 40px 10px 26px;
+  }
+
+  .movies-card-list__list {
+    grid-template-columns: 1fr;
+    row-gap: 14px;
+    column-gap: 0;
+  }
+}

@@ -1,0 +1,241 @@
+.menu {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.menu__burger-button {
+  display: none;
+  padding: 0;
+  width: 44px;
+  height: 44px;
+  border: none;
+  background-color: transparent;
+  background-image: url('../../images/burger-menu.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.menu__close-button {
+  display: none;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  top: 23px;
+  right: 23px;
+  background-color: transparent;
+  background-image: url(../../images/burger-close-button.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 0;
+  border: none;
+}
+
+.menu__links {
+  display: flex;
+  align-items: center;
+}
+
+.menu__links_opened {
+  display: flex;
+}
+
+.menu__page-links {
+  margin: 0 50px 0 0;
+  display: flex;
+  align-items: center;
+}
+
+.menu__page-link:last-of-type {
+  margin: 0;
+}
+
+.menu__links-item {
+  margin: 0 20px 0 0;
+  font-weight: 400;
+}
+
+.menu__links-item:last-of-type {
+  margin: 0;
+}
+
+.menu__links-item_active {
+  font-weight: 500;
+}
+
+.menu__links-item_type_burger {
+  display: none;
+}
+
+.menu__account-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px;
+  padding-left: 11px;
+  box-shadow: 0px 3px 14px rgba(0, 0, 0, 0.08);
+  border-radius: 40px;
+  text-decoration: none;
+  transition: all .3s ease-in-out;
+  cursor: pointer;
+  color: white;
+}
+
+.menu__account-block:hover {
+  background-color: #313131;
+  text-decoration: none;
+}
+
+.menu__account-text {
+  margin: 0 7px 0 0;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.menu__account-image {
+  width: 26px;
+  height: 26px;
+  background-image: url('../../images/profile-icon.svg');
+  background-size: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #313131;
+  border-radius: 100%;
+  transition: all .3s ease-in-out;
+}
+
+.menu__account-block:hover .menu__account-image {
+  background-color: #454545;
+}
+
+.menu__unauth-links {
+  display: flex;
+  align-items: center;
+}
+
+.menu__unauth-links-item {
+  margin: 0 30px 0 0;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.menu__unauth-links-item:last-child {
+  margin: 0;
+}
+
+.menu__unauth-links-item_type_signin {
+  box-sizing: border-box;
+  padding: 8px 20px;
+  background: #2BE080;
+  border-radius: 3px;
+  color: black;
+}
+
+@media screen and (max-width: 1024px) {
+  .menu {
+    font-size: 18px;
+  }
+
+  .menu__burger-button {
+    display: block;
+  }
+
+  .menu__container {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.3);
+    visibility: hidden;
+    transition: visibility .2s linear, opacity .2s linear;
+  }
+
+  .menu__container_opened {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .menu__links {
+    margin: 0 0 0 auto;
+    display: none;
+    background-color: #202020;
+    box-sizing: border-box;
+    width: 520px;
+    height: 100vh;
+    padding: 159px 90px 90px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .menu__links-item_type_burger {
+    display: block;
+  }
+
+  .menu__link {
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+  }
+
+  .menu__page-links {
+    margin: 0 0 50px;
+    flex-direction: column;
+  }
+
+  .menu__links-item {
+    margin: 0 0 22px 0;
+    font-weight: 500;
+  }
+
+  .menu__links-item_active {
+    font-weight: 500;
+    border-bottom: 2px solid white;
+  }
+
+  .menu__close-button {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .menu__burger-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .menu__links {
+    margin: 0;
+    width: 100%;
+    padding: 144px 10px 46px;
+  }
+
+  .menu__links-item {
+    margin: 0 0 24px 0;
+  }
+
+  .menu__close-button {
+    top: 14px;
+    right: 14px;
+  }
+
+  .menu__unauth-links-item {
+    margin: 0 14px 0 0;
+    font-size: 10px;
+  }
+
+  .menu__unauth-links-item_type_signin {
+    min-height: 26px;
+    padding: 7px 12px;
+  }
+}
