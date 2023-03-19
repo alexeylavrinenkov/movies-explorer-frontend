@@ -25,43 +25,43 @@ const Navigation = () => {
           type='button'
           onClick={handleBurgerButtonClick}
           className='menu__burger-button link'/> < div className = {
-          `menu__container ${isBurgerMenuOpen && 'menu__container_opened'}`
-        } > <ul className='menu__links list'>
+          `menu__container ${isBurgerMenuOpen ? 'menu__container_opened' : ''}`
+        } > <div className='menu__links'>
           <button
             type='button'
             onClick={handleCloseButtonClick}
             className='menu__close-button link'/>
-          <div className='menu__page-links'>
+          <ul className='menu__page-links list'>
             <li className='menu__links-item menu__page-link menu__links-item_type_burger'>
               <Link
-                className={`link menu__link ${pathname === '/' && 'menu__links-item_active'}`}
+                className={`link menu__link ${pathname === '/' ? 'menu__link_active' : ''}`}
                 to='/'>
                 Главная
               </Link>
             </li>
             <li className='menu__links-item menu__page-link'>
               <Link
-                className={`link menu__link ${pathname === '/movies' && 'menu__links-item_active'}`}
+                className={`link menu__link ${pathname === '/movies' ? 'menu__link_active' : ''}`}
                 to='/movies'>
                 Фильмы
               </Link>
             </li>
             <li className='menu__links-item menu__page-link'>
               <Link
-                className={`link menu__link ${pathname === '/saved-movies' && 'menu__links-item_active'}`}
+                className={`link menu__link ${pathname === '/saved-movies' ? 'menu__link_active' : ''}`}
                 to='/saved-movies'>
                 Сохранённые фильмы
               </Link>
             </li>
-          </div>
-          <li className='menu__links-item'>
+          </ul>
+          <div className='menu__links-item'>
             <Link className='menu__account-block' to='/profile'>
               <p
-                className={`menu__account-text ${pathname === '/profile' && 'menu__links-item_active'}`}>Аккаунт</p>
+                className={`menu__account-text ${pathname === '/profile' ? 'menu__account-text_active' : ''}`}>Аккаунт</p>
               <div className='image menu__account-image'/>
             </Link>
-          </li>
-        </ul> </div>
+          </div>
+        </div> </div>
         </>)
         : (
           <ul className='list menu__unauth-links'>
@@ -71,7 +71,7 @@ const Navigation = () => {
               </Link>
             </li>
             <li className='menu__unauth-links-item'>
-              <Link className='link menu__unauth-links-item_type_signin' to='/signin'>
+              <Link className='link menu__unauth-link menu__unauth-link_type_signin' to='/signin'>
                 Войти
               </Link>
             </li>

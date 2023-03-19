@@ -37,9 +37,6 @@
 }
 
 .section_type_main {
-  width: 100%;
-  box-sizing: border-box;
-  margin: 0 auto;
   padding: 0 70px;
 }
 
@@ -65,7 +62,7 @@
   object-position: center;
 }
 
-.title_type_main {
+.main-title {
   width: 100%;
   padding-bottom: 23px;
   font-weight: 400;
@@ -94,7 +91,7 @@
     padding: 0 14px;
   }
 
-  .title_type_main {
+  .main-title {
     padding-bottom: 28px;
     font-size: 18px;
   }

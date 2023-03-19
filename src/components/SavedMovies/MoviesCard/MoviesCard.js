@@ -4,7 +4,7 @@ import img from '../../../images/33-words-about-design.jpg';
 
 const MoviesCard = ({title, duration}) => {
   return (
-    <li className='movies-card link'>
+    <li className='movies-card'>
       <a
         href="/movies"
         rel="noreferrer"

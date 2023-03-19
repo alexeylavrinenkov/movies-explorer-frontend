@@ -4,8 +4,8 @@ import studentPhoto from '../../../images/student.jpg';
 
 const AboutMe = () => {
   return (
-    <article className='student section_type_main' id='student'>
-      <h2 className='student__title title_type_main'>Студент</h2>
+    <article className='student section section_type_main' id='student'>
+      <h2 className='student__title main-title'>Студент</h2>
       <div className='student__bio-container'>
         <div className='student__text'>
           <h3 className='student__name'>Алексей</h3>
@@ -21,7 +21,7 @@ const AboutMe = () => {
           </p>
           <a rel='noreferrer' target='_blank' href='https://github.com/alexeylavrinenkov' className='student__link link'>Github</a>
         </div>
-        <img src={studentPhoto} alt='Моё фото' className='student_photo' />
+        <img src={studentPhoto} alt='Моё фото' className='student__photo' />
       </div>
     </article>
   );

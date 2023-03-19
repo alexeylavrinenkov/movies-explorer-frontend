@@ -28,7 +28,7 @@
   font-weight: 400;
 }
 
-.footer_links {
+.footer__links {
   display: flex;
 }
 
@@ -62,7 +62,7 @@
     color: #8B8B8B;
   }
 
-  .footer_links {
+  .footer__links {
     flex-direction: column;
     align-items: center;
     margin: 0 0 30px;

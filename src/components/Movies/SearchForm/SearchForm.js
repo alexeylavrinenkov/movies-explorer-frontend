@@ -4,8 +4,8 @@ import './SearchForm.css';
 const SearchForm = () => {
   return (
     <section className='search section' aria-label="Поиск">
-      <div className='search_input-container'>
-        <form name='search' className='search_form'>
+      <div className='search__input-container'>
+        <form name='search' className='search__form'>
           <button type='submit' className='search__magnifier link' />
           <input
             type='text'
@@ -23,10 +23,10 @@ const SearchForm = () => {
           name='short-films'
           id='short-films'
           value='short-films'
-          className='search__checkbox link'
+          className='search__checkbox'
         />
         <span className='search__custom-checkbox'></span>
-        <span htmlFor='short-films' className='search__checkbox-text'>Короткометражки</span>
+        <span className='search__checkbox-text'>Короткометражки</span>
       </label>
     </section>
   );

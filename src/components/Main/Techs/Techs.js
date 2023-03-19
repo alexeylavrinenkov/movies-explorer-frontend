@@ -3,8 +3,8 @@ import './Techs.css';
 
 const Techs = () => {
   return (
-    <section className='techs section_type_main' id='techs'>
-      <h2 className='techs__title title_type_main'>Технологии</h2>
+    <section className='techs section section_type_main' id='techs'>
+      <h2 className='techs__title main-title'>Технологии</h2>
       <h3 className='techs__subtitle'>7 технологий</h3>
       <p className='techs__text'>
         На курсе веб-разработки мы освоили технологии,

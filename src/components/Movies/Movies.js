@@ -6,7 +6,7 @@ import More from './More/More';
 
 const Movies = () => {
   return (
-    <main className='movies content'>
+    <main className='movies'>
       <SearchForm />
       <MoviesCardList />
       <More />

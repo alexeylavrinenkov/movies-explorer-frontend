@@ -6,7 +6,7 @@ import Devider from './Devider/Devider';
 
 const SavedMovies = () => {
   return (
-    <main className='saved-movies content'>
+    <main className='saved-movies'>
       <SearchForm />
       <MoviesCardList />
       <Devider />

@@ -13,7 +13,7 @@ const Footer = () => {
         <div className='footer__copy-nav'>
           <p className='footer__copyright'>© {new Date().getFullYear()}</p>
           <nav>
-            <ul className='list footer_links'>
+            <ul className='list footer__links'>
               <li className="footer__links-item">
                 <a
                   rel='noreferrer'

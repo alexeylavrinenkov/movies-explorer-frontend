@@ -10,7 +10,7 @@ const Header = () => {
 
   return ( <> {
     headerPathNames.indexOf(location.pathname) !== -1 && (
-      <header className={`header section ${location.pathname === '/' && 'header_theme_main'}`}>
+      <header className={`header section ${location.pathname === '/' ? 'header_theme_main' : ''}`}>
         <Link className='link header__link' to='/'>
           <img className='image header__logo' src={logo} alt='Логотип Movies Explorer'/>
         </Link>

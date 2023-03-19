@@ -3,7 +3,7 @@ import './Portfolio.css';
 
 const Portfolio = () => {
   return (
-    <section className='portfolio section_type_main'>
+    <section className='portfolio section section_type_main'>
       <h2 className='portfolio__title'>Портфолио</h2>
       <ul className='list portfolio__links'>
         <li className='portfolio__links-item'>
