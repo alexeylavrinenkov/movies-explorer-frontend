@@ -1,0 +1,134 @@
+.student {
+  padding-top: 110px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.student__title {
+  margin: 0 auto 66px;
+}
+
+.student__bio-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.student__text {
+  margin: 0 66px auto 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.student__name {
+  margin: 0 auto 18px 0;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 1.16;
+  letter-spacing: -0.04em;
+}
+
+.student__profession {
+  margin: 0 auto 26px 0;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.16;
+}
+
+.student__about {
+  max-width: 600px;
+  margin: 0 auto 99px 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.57;
+}
+
+.student__link {
+  margin: 0 auto 0 0;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.16;
+}
+
+.student__photo {
+  width: 270px;
+  height: 327px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+  .student {
+    padding-top: 90px;
+    padding-bottom: 45px;
+  }
+
+  .student__title {
+    margin: 0 auto 66px;
+  }
+
+  .student__name {
+    margin: 0 auto 16px 0;
+    font-size: 40px;
+  }
+
+  .student__profession {
+    margin: 0 auto 20px 0;
+    font-size: 12px;
+  }
+
+  .student__about {
+    max-width: 364px;
+    margin: 0 auto 87px 0;
+    font-size: 12px;
+  }
+
+  .student__photo {
+    width: 255px;
+    height: 307px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .student {
+    padding-top: 70px;
+    padding-bottom: 45px;
+  }
+
+  .student__title {
+    margin: 0 auto 60px;
+  }
+
+  .student__name {
+    margin: 0 auto 20px 0;
+    font-size: 30px;
+  }
+
+  .student__profession {
+    font-size: 11px;
+  }
+
+  .student__about {
+    max-width: 100%;
+    margin: 0 auto 40px 0;
+    font-size: 11px;
+  }
+
+  .student__photo {
+    min-width: 200px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .student__bio-container {
+    flex-direction: column-reverse;
+  }
+
+  .student__photo {
+    margin: 0 0 40px 0;
+    width: 100%;
+    height: 352px;
+  }
+}

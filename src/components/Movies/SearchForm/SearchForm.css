@@ -1,0 +1,152 @@
+.search {
+  padding-top: 55px;
+  padding-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+}
+
+.search__form {
+  position: relative;
+  margin: 0 auto 29px;
+  display: flex;
+}
+
+.search__magnifier {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  background-image: url('../../../images/magnifier.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 34px;
+}
+
+.search__input {
+  width: 100%;
+  padding: 15px 50px 15px 55px;
+  border: none;
+  border-bottom: 1px solid #424242;
+  background-color: transparent;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.2;
+  color: white;
+}
+
+.search__input::placeholder {
+  text-align: center;
+  color: #8B8B8B;
+}
+
+.search__input:focus {
+  outline: none;
+  border-bottom: 1px solid #777;
+  box-shadow: 0 0 0px 1000px #202020 inset;
+}
+
+.search__button {
+  position: absolute;
+  right: 0;
+  bottom: 16px;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 100%;
+  background-color: #4285F4;
+  background-image: url('../../../images/right-arrow.svg');
+  background-position: 55% center;
+  background-repeat: no-repeat;
+  background-size: 6px 14px;
+}
+
+.search__sort {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.search__checkbox {
+  display: none;
+}
+
+.search__custom-checkbox {
+  position: relative;
+  display: block;
+  margin: 0 12px 0 0;
+  width: 36px;
+  height: 20px;
+  background-color: #343434;
+  border-radius: 20px;
+  transition: background-color 0.2s linear;
+}
+
+.search__checkbox:checked + .search__custom-checkbox {
+  background-color: #3DDC84;
+}
+
+.search__custom-checkbox::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 6px;
+  transform: translateY(-50%);
+  background-color: #A0A0A0;
+  transition: all 0.2s linear;
+}
+
+.search__checkbox:checked + .search__custom-checkbox::after {
+  left: 22px;
+  background-color: white;
+}
+
+.search__checkbox-text {
+  display: block;
+  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.28;
+}
+
+
+@media screen and (max-width: 1024px) {
+  .search {
+    padding-top: 71px;
+    padding-bottom: 61px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .search {
+    padding-top: 83px;
+    padding-bottom: 50px;
+  }
+
+  .search__form {
+    margin: 0 auto 42px;
+  }
+
+  .search__magnifier {
+    display: none;
+  }
+
+  .search__input {
+    padding: 15px 40px 15px 0;
+    font-size: 18px;
+  }
+
+  .search__input::placeholder {
+    text-align: start;
+  }
+
+  .search__checkbox-text {
+    font-size: 11px;
+  }
+}
