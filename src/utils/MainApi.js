@@ -24,7 +24,7 @@ class MainApi {
   } 
   
   register(name, email, password) {
-    return fetch(`${this._url}/signup`, {
+    return fetch(`${this._baseUrl}/signup`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -38,7 +38,7 @@ class MainApi {
   };
   
   login(email, password) {
-    return fetch(`${this._url}/signin`, {
+    return fetch(`${this._baseUrl}/signin`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -52,7 +52,7 @@ class MainApi {
   };
   
   checkToken(token) {
-    return fetch(`${this._url}/users/me`, {
+    return fetch(`${this._baseUrl}/users/me`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -66,7 +66,7 @@ class MainApi {
   };
 
   getUser() {
-    return fetch(`${this._url}/users/me`, {
+    return fetch(`${this._baseUrl}/users/me`, {
       headers: this._getHeaders(),
     })
       .then((res) => {
@@ -75,7 +75,7 @@ class MainApi {
   }
 
   updateUser(data) {
-    return fetch(`${this._url}/users/me`, {
+    return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
       headers: this._getHeaders(),
       body: JSON.stringify({
@@ -89,7 +89,7 @@ class MainApi {
   }
 
   getSavedMovies() {
-    return fetch(`${this._url}/movies`, {
+    return fetch(`${this._baseUrl}/movies`, {
       headers: this._getHeaders(),
     })
       .then((res) => {
@@ -98,7 +98,7 @@ class MainApi {
   }
 
   saveMovie(movieData) {
-    return fetch(`${this._url}/movies`, {
+    return fetch(`${this._baseUrl}/movies`, {
       method: 'POST',
       headers: this._getHeaders(),
       body: JSON.stringify(movieData)
@@ -109,7 +109,7 @@ class MainApi {
   }
 
   unsaveMovie(movieId) {
-    return fetch(`${this._url}/movies/${movieId}`, {
+    return fetch(`${this._baseUrl}/movies/${movieId}`, {
       method: 'DELETE',
       headers: this._getHeaders(),
     })
