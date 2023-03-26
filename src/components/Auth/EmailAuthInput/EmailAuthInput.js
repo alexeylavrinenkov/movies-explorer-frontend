@@ -1,7 +1,7 @@
 import React from 'react';
 import AuthInput from './../AuthInput/AuthInput';
 
-const EmailAuthInput = () => {
+const EmailAuthInput = ({ ...validationParams }) => {
   return (
     <AuthInput
       labelText='E-mail'
@@ -9,6 +9,7 @@ const EmailAuthInput = () => {
       name='email'
       placeholder='Введите почту'
       required
+      {...validationParams}
     />
   );
 };

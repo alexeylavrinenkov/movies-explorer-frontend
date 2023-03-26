@@ -1,59 +1,41 @@
-const movieData = [
-  {
-    title: '33 слова о дизайне',
-    duration: '1ч 47м',
-  },
-  {
-    title: 'Киноальманах «100 лет дизайна»',
-    duration: '1ч 3м',
-  },
-  {
-    title: 'В погоне за Бенкси',
-    duration: '1ч 42м',
-  },
-  {
-    title: 'Баския: Взрыв реальности',
-    duration: '1ч 21м',
-  },
-  {
-    title: 'Бег это свобода',
-    duration: '1ч 44м',
-  },
-  {
-    title: 'Книготорговцы',
-    duration: '1ч 37м',
-  },
-  {
-    title: 'Когда я думаю о Германии ночью',
-    duration: '1ч 56м',
-  },
-  {
-    title: 'Gimme Danger: История Игги и The Stooge...',
-    duration: '1ч 59м',
-  },
-  {
-    title: 'Дженис: Маленькая девочка грустит',
-    duration: '1ч 42м',
-  },
-  {
-    title: 'Соберись перед прыжком',
-    duration: '1ч 10м',
-  },
-  {
-    title: 'Пи Джей Харви: A dog called money',
-    duration: '1ч 4м',
-  },
-  {
-    title: 'По волнам: Искусство звука в кино',
-    duration: '1ч 7м',
-  },
-];
+const HEADER_PATH_NAMES = ['/', '/movies', '/saved-movies', '/profile'];
+const FOOTER_PATH_NAMES = ['/', '/movies', '/saved-movies'];
 
-const headerPathNames = ['/', '/movies', '/saved-movies', '/profile'];
-const footerPathNames = ['/', '/movies', '/saved-movies'];
+const MAIN_BASE_URL = 'https//:api.movies-explorer.site.nomoredomains.work';
+
+const MOVIES_API_BASE_URL = 'https://api.nomoreparties.co';
+
+const NUMBER_OF_SHOWN_MOVIES_BY_COLUMNS = {
+  1: {
+    INITIAL: 5,
+    ADD: 2,
+  },
+  2: {
+    INITIAL: 8,
+    ADD: 2,
+  },
+  3: {
+    INITIAL: 12,
+    ADD: 3,
+  }
+};
+
+const REQUEST_ERROR_TEXTS = {
+  SIGNIN_INCORRECT_LOGIN_OR_PASSWORD: 'Вы ввели неправильный логин или пароль.',
+  SIGNIN_TOKEN_NOT_TRANSFERED: 'При авторизации произошла ошибка. Токен не передан или передан не в том формате.',
+  SIGNIN_INCORRECT_TOKEN: 'При авторизации произошла ошибка. Переданный токен некорректен.',
+  SIGNIN_ERROR: 'При авторизации произошла ошибка.',
+  USER_ALREADY_EXISTS: 'Пользователь с таким email уже существует.',
+  SIGNUP_ERROR: 'При регистрации пользователя произошла ошибка.',
+  PROFILE_UPDATE_ERROR: 'При обновлении профиля произошла ошибка.',
+  INTERNAL_SERVER_ERROR: 'На сервере произошла ошибка.',
+};
 
 export {
-  movieData,
-  headerPathNames,
-  footerPathNames,
+  HEADER_PATH_NAMES,
+  FOOTER_PATH_NAMES,
+  MAIN_BASE_URL,
+  MOVIES_API_BASE_URL,
+  NUMBER_OF_SHOWN_MOVIES_BY_COLUMNS,
+  REQUEST_ERROR_TEXTS,
 };

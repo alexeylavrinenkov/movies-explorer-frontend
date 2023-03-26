@@ -10,7 +10,17 @@ const Auth = ({
   questionText,
   linkRoute,
   linkText,
+  isValid,
+  onSubmit,
+  isLoading,
+  requestError
 }) => {
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+
+    onSubmit();
+  };
+
   return (
     <main className='auth section'>
       <div className='auth__container'>
@@ -23,15 +33,16 @@ const Auth = ({
             />
           </Link>
           <h1 className='auth__title'>{title}</h1>
-          <form name='auth' className='auth__form'>
+          <form name='auth' onSubmit={handleSubmit} className='auth__form' noValidate>
             {children}
           </form>
         </div>
         <div className='auth__bottom'>
-          <span className='auth__error-text auth__error-text_active'>Общая ошибка</span>
+          <span className='auth__error-text'>{requestError}</span>
           <button
             type='submit'
-            className='auth__submit-button link'
+            className={`auth__submit-button ${!isValid || isLoading ? 'auth__submit-button_inactive' : 'link'}`}
+            disabled={!isValid || isLoading}
           >
             {submitButtonText}
           </button>
