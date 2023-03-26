@@ -25,7 +25,7 @@ const MoviesCardList = ({
 
   return (
     <section className='movies-card-list section' aria-label="Сохраненные фильмы">
-      <ul className='movies-card-list__list list'>
+      <ul className='movies-card-list__list list' ref={moviesCardListElement}>
         {shownMovies.map((movie) => {
           return (<MoviesCard
             movie={movie}

@@ -16,10 +16,7 @@ const SearchForm = ({
 
   const [errorText, setErrorText] = useState('');
   
-  const [values, errors, isValid, handleChange] = useForm(
-    defaultValues,
-    !!defaultSearchText,
-  );
+  const [values, errors, isValid, handleChange] = useForm(defaultValues, !!defaultSearchText);
   
   const handleSubmit = (evt) => {
     evt.preventDefault();

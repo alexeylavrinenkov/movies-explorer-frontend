@@ -22,7 +22,7 @@ const MoviesCard = ({ movie, onSaveButtonClick }) => {
         target='_blank'
         className='movies-card__link link'
       >
-          <img src={MOVIES_API_BASE_URL + movie.image.url} alt={movie.nameRU} className='movies-card__img img'/>
+          <img src={movie.image} alt={movie.nameRU} className='movies-card__img img'/>
       </a>
       <div className='movies-card__container'>
         <div className='movies-card__title-container'>

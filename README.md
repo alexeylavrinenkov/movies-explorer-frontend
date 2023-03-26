@@ -5,6 +5,10 @@
 
 ## Ссылки
 * Макет сайта: https://disk.yandex.ru/d/t4IkjJ2IDhxQhQ
+* Фронтенд сайта: https://mesto.service.nomoredomainsclub.ru
+* Бэкенд сайта: https://api.movies-explorer.site.nomoredomains.work
+* Pull request: https://github.com/alexeylavrinenkov/movies-explorer-frontend/pull/2
+
 
 ## Функционал
 * Авторизация и регистрация пользователей

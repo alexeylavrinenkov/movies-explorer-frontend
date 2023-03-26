@@ -7,7 +7,7 @@
   flex-grow: 1;
 }
 
-.profile__container {
+.profile__form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -27,7 +27,7 @@
   text-align: center;
 }
 
-.profile__form {
+.profile__container {
   margin: 0 0 123px;
   display: flex;
   flex-direction: column;
@@ -121,7 +121,7 @@
 .profile__common-error {
   min-height: 26px;
   display: block;
-  margin: 0 auto 20px;
+  margin: 0 auto 7px;
   font-weight: 400;
   font-size: 11px;
   line-height: 1.2;

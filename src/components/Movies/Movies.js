@@ -42,14 +42,18 @@ const Movies = ({
   };
 
   const handleSaveButtonClick = (movie) => {
-    const isSavedMovie = savedMovies.some((savedMovie) => {
-      return savedMovie.movieId === movie.movieId;
-    });
+    let isSavedMovie = false;
+
+    if (savedMovies) {
+      isSavedMovie = savedMovies.some((savedMovie) => {
+        return savedMovie.movieId === movie.movieId;
+      });
+    }
 
     if (isSavedMovie) {
-      const savedMovie = savedMovies.find(
-        (savedMovie) => savedMovie.movieId === movie.movieId,
-      );
+      const savedMovie = savedMovies.find((savedMovie) => {
+        return savedMovie.movieId === movie.movieId;
+      });
       
       return onUnsaveMovie(savedMovie);
     } else {
@@ -99,7 +103,7 @@ const Movies = ({
         onCheckboxChange={handleCheckboxChange}
         isLoading={isLoading}
         defaultSearchText={searchText}
-        defaultAreShortiesSeleted={areShortMoviesSelected} 
+        defaultAreShortMoviesSelected={areShortMoviesSelected} 
       />
 
       {!searchText ? '' : isLoading ? (

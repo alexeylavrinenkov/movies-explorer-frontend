@@ -15,15 +15,9 @@ const Auth = ({
   isLoading,
   requestError
 }) => {
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-
-    onSubmit();
-  };
-
   return (
     <main className='auth section'>
-      <div className='auth__container'>
+      <form name='auth' onSubmit={onSubmit} className='auth__form' noValidate>
         <div className='auth__top'>
           <Link to='/' className='auth__logo-link link'>
             <img
@@ -33,9 +27,9 @@ const Auth = ({
             />
           </Link>
           <h1 className='auth__title'>{title}</h1>
-          <form name='auth' onSubmit={handleSubmit} className='auth__form' noValidate>
+          <div className='auth__container'>
             {children}
-          </form>
+          </div>
         </div>
         <div className='auth__bottom'>
           <span className='auth__error-text'>{requestError}</span>
@@ -53,7 +47,7 @@ const Auth = ({
             </Link>
           </div>
         </div>
-      </div>
+      </form>
     </main>
   );
 };

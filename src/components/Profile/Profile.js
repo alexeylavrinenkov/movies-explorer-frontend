@@ -62,10 +62,10 @@ const Profile = ({ onUpdateUser, onLogout, openPopup }) => {
 
   return (
     <main className='profile section'>
-      <div className='profile__container'>
+      <form name='profile' onSubmit={handleSubmit} className='profile__form' noValidate>
         <div className='profile__top'>
           <h1 className='profile__title'>{currentUser.name ? `Привет, ${currentUser.name}!` : 'Привет!'}</h1>
-          <form name='profile' onSubmit={handleSubmit} className='profile__form' noValidate>
+          <div className='profile__container'>
             <label className='profile__input-container'>
               <span className='profile__input-label'>Имя</span>
               <input 
@@ -96,7 +96,7 @@ const Profile = ({ onUpdateUser, onLogout, openPopup }) => {
               />
             </label>
             <span className='profile__input-error'>{errors.email}</span>
-          </form>
+          </div>
         </div>
         <div className='profile__bottom'>
           {!isEditing ? (<>
@@ -113,7 +113,7 @@ const Profile = ({ onUpdateUser, onLogout, openPopup }) => {
             </button>
           </>)}
         </div>
-      </div>
+      </form>
     </main>
   );
 };

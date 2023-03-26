@@ -25,8 +25,8 @@ const MoviesCardList = ({ foundMovies, onSaveButtonClick }) => {
 
   return (
     <>
-      <section className='movies-card-list section' aria-label="Фильмы" ref={moviesCardListElement}>
-        <ul className='movies-card-list__list list'>
+      <section className='movies-card-list section' aria-label="Фильмы">
+        <ul className='movies-card-list__list list' ref={moviesCardListElement}>
           {shownMovies.map((movie) => {
             return (<MoviesCard key={movie.movieId} movie={movie} onSaveButtonClick={onSaveButtonClick} />);
           })}
