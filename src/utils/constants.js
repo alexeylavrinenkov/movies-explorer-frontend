@@ -1,7 +1,7 @@
 const HEADER_PATH_NAMES = ['/', '/movies', '/saved-movies', '/profile'];
 const FOOTER_PATH_NAMES = ['/', '/movies', '/saved-movies'];
 
-const MAIN_BASE_URL = 'https//:api.movies-explorer.site.nomoredomains.work';
+const MAIN_BASE_URL = 'https://api.movies-explorer.site.nomoredomains.work';
 
 const MOVIES_API_BASE_URL = 'https://api.nomoreparties.co';
 
