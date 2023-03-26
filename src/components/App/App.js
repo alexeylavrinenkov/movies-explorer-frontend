@@ -17,8 +17,8 @@ import mainApi from '../../utils/MainApi';
 import Popup from '../Popup/Popup';
 
 const App = () => {
-  const [loggedIn, setLoggedIn] = useState(true);
-  const [currentUser, setCurrentUser] = useState({name: 'Alexey', email: 'alexey@gmail.com'});
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState();
   const [savedMovies, setSavedMovies] = useState(null);
   const [popupTitle, setPopupTitle] = useState('');
   const [isOpenPopup, setIsOpenPopup] = useState(false);

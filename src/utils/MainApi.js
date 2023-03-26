@@ -23,7 +23,7 @@ class MainApi {
     };
   } 
   
-  register(name, email, password) {
+  register({ name, email, password }) {
     return fetch(`${this._baseUrl}/signup`, {
       method: 'POST',
       headers: {
@@ -37,7 +37,7 @@ class MainApi {
       })
   };
   
-  login(email, password) {
+  login({ email, password }) {
     return fetch(`${this._baseUrl}/signin`, {
       method: 'POST',
       headers: {
@@ -74,14 +74,11 @@ class MainApi {
       })
   }
 
-  updateUser(data) {
+  updateUser({ name, email }) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
       headers: this._getHeaders(),
-      body: JSON.stringify({
-        name: `${data.name}`,
-        email: `${data.email}`
-      })
+      body: JSON.stringify({ name, email })
     })
       .then((res) => {
         return this._checkResponse(res);
