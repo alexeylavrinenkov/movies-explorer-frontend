@@ -53,12 +53,12 @@ const Movies = ({
     console.log(isSavedMovie);
 
     if (isSavedMovie) {
-      const savedMovie = savedMovies.find((savedMovie) => {
-        return savedMovie.movieId === movie.movieId;
-      });
+      console.log("Фильм удален");
+      const savedMovie = savedMovies.find((savedMovie) => savedMovie.movieId === movie.movieId);
       
       onUnsaveMovie(savedMovie._id);
     } else {
+      console.log("Фильм сохранен");
       onSaveMovie(movie);
     }
   };

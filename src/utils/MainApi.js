@@ -94,11 +94,11 @@ class MainApi {
       })
   }
 
-  saveMovie(movieData) {
+  saveMovie(movie) {
     return fetch(`${this._baseUrl}/movies`, {
       method: 'POST',
       headers: this._getHeaders(),
-      body: JSON.stringify(movieData)
+      body: JSON.stringify(movie)
     })
       .then((res) => {
         return this._checkResponse(res);

@@ -18,7 +18,7 @@ import Popup from '../Popup/Popup';
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(true);
-  const [currentUser, setCurrentUser] = useState();
+  const [currentUser, setCurrentUser] = useState({});
   const [savedMovies, setSavedMovies] = useState([]);
   const [popupTitle, setPopupTitle] = useState('');
   const [isOpenPopup, setIsOpenPopup] = useState(false);
@@ -56,10 +56,19 @@ const App = () => {
     mainApi.checkToken(token)
       .then((userData) => {
         if (userData) {
+          console.log(userData);
           setCurrentUser(userData);
           setLoggedIn(true);
           openPopup('Вы успешно вошли в свой аккаунт!');
           navigate('/movies');
+
+          return mainApi.getSavedMovies()
+            .then((movies) => {
+              setSavedMovies(savedMovies);
+            })
+            .catch((err) => {
+              console.error(err);
+            });
         }
       })
       .catch((err) => {
@@ -77,24 +86,15 @@ const App = () => {
     openPopup('Вы успешно обновили профиль!');
   };
 
-  const handleGetSavedMovies = () => {
-    mainApi.getSavedMovies()
-      .then((movies) => {
-        if (movies) {
-          setSavedMovies(savedMovies);
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  };
-
   const handleSaveMovie = (movieData) => {
     mainApi.saveMovie(movieData)
       .then((savedMovie) => {
+        console.log(savedMovie, savedMovies);
+        console.log('Фильм сохранен 2')
         if (savedMovie && savedMovies) {
           setSavedMovies([...savedMovies, savedMovie]);
         } else if (savedMovie) {
+          console.log('Это единственный сохраненный фильм');
           setSavedMovies([savedMovie]);
         }
       })
@@ -118,12 +118,6 @@ const App = () => {
   useEffect(() => {
     handleCheckToken();
   }, []);
-
-  useEffect(() => {
-    if (loggedIn) {
-      handleGetSavedMovies();
-    }
-  });
 
   useEffect(() => {
     if (isOpenPopup) {

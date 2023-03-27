@@ -5,7 +5,7 @@ import mainApi from '../../utils/MainApi';
 import useProfileForm from '../../utils/useProfileForm';
 import './Profile.css';
 
-const Profile = ({ onUpdateUser, onLogout, openPopup }) => {
+const Profile = ({ onUpdateUser, onLogout }) => {
   const currentUser = useContext(CurrentUserContext);
   
   const [isEditing, setIsEditing] = useState(false);
@@ -33,10 +33,10 @@ const Profile = ({ onUpdateUser, onLogout, openPopup }) => {
     setIsLoading(true);
 
     mainApi.updateUser(values)
-      .then((dataUser) => {
-        if (dataUser) {
+      .then((res) => {
+        if (res) {
           handleSaveButtonClick();
-          onUpdateUser(dataUser);
+          onUpdateUser(res.data);
         }
       })
       .catch((err) => {

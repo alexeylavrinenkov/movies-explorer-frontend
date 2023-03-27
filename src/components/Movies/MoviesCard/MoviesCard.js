@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import './MoviesCard.css';
 import formatMovieDuration from '../../../utils/formatMovieDuration';
-import { MOVIES_API_BASE_URL } from '../../../utils/constants';
 
 const MoviesCard = ({ movie, isSavedMovie, onSaveButtonClick }) => {
   const [isLoading, setIsLoading] = useState(false);
-
-  console.log(movie);
 
   async function handleSaveButtonClick() {
     setIsLoading(true);
