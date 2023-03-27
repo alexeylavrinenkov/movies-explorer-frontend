@@ -6,9 +6,9 @@ import Devider from './Devider/Devider';
 import searchMovies from '../../utils/searchMovies';
 
 const SavedMovies = ({ savedMovies, onUnsaveMovie }) => {
-  const [foundMovies, setFoundMovies] = useState([]);
   const [searchText, setSearchText] = useState('');
   const [areShortMoviesSelected, setAreShortMoviesSelected] = useState(false);
+  const [foundMovies, setFoundMovies] = useState(savedMovies);
 
   const handleUnsaveButtonClick = (movie) => {
     const savedMovie = savedMovies.find((savedMovie) => {
@@ -36,7 +36,7 @@ const SavedMovies = ({ savedMovies, onUnsaveMovie }) => {
       );
       setFoundMovies(foundMovies);
     }
-  }, [searchText, areShortMoviesSelected, savedMovies]);
+  }, [savedMovies, searchText, areShortMoviesSelected]);
 
   return (
     <main className='saved-movies'>

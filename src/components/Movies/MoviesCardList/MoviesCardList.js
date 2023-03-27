@@ -15,16 +15,6 @@ const MoviesCardList = ({ foundMovies, savedMovies, onSaveButtonClick }) => {
     setShownMovies(foundMovies.slice(0, numberOfShownMovies + NUMBER_OF_SHOWN_MOVIES_BY_COLUMNS[numberOfColumns].ADD));
   };
 
-  const getSaveButtonStatus = (movie) => {
-    let isSaved = false;
-    
-    if (savedMovies) {
-      isSaved = savedMovies.some((savedMovie) => savedMovie.movieId === movie.movieId);
-    }
-
-    return isSaved;
-  };
-
   useEffect(() => {
     if (foundMovies.length) {
       const numberOfColumns = window.getComputedStyle(moviesCardListElement.current).getPropertyValue('grid-template-columns').split(' ').length;
@@ -38,7 +28,7 @@ const MoviesCardList = ({ foundMovies, savedMovies, onSaveButtonClick }) => {
       <section className='movies-card-list section' aria-label="Фильмы">
         <ul className='movies-card-list__list list' ref={moviesCardListElement}>
           {shownMovies.map((movie) => {
-            return (<MoviesCard key={movie.movieId} movie={movie} isSavedMovie={getSaveButtonStatus(movie)} onSaveButtonClick={onSaveButtonClick} />);
+            return (<MoviesCard key={movie.movieId} movie={movie} savedMovies={savedMovies} onSaveButtonClick={onSaveButtonClick} />);
           })}
         </ul>
       </section>

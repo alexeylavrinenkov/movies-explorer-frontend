@@ -1,7 +1,7 @@
-const searchMovies = (movies, searchText, areShortFilmsSelected) => {
+const searchMovies = (movies, searchText, areShortMoviesSelected) => {
   let foundMovies = movies;
 
-  if (areShortFilmsSelected) {
+  if (areShortMoviesSelected) {
     foundMovies = foundMovies.filter((movie) => {
       return movie.duration <= 40;
     });

@@ -5,7 +5,7 @@ import formatMovieDuration from '../../../utils/formatMovieDuration';
 const MoviesCard = ({ movie, onCloseButtonClick }) => {
   const [isLoading, setIsLoading] = useState(false);
 
-  async function handleSaveButtonClick() {
+  async function handleCloseButtonClick() {
     setIsLoading(true);
 
     await onCloseButtonClick(movie);
@@ -23,7 +23,7 @@ const MoviesCard = ({ movie, onCloseButtonClick }) => {
       <div className='movies-card__container'>
         <div className='movies-card__title-container'>
           <h3 className='movies-card__title'>{movie.nameRU}</h3>
-          <button type='button' className='movies-card__close-button link' onClick={handleSaveButtonClick} disabled={isLoading} />
+          <button type='button' className='movies-card__close-button link' onClick={handleCloseButtonClick} disabled={isLoading} />
         </div>
         <p className='movies-card__duration'>{formatMovieDuration(movie.duration)}</p>
       </div>

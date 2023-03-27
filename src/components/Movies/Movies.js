@@ -115,6 +115,7 @@ const Movies = ({
       ) : (
         <MoviesCardList
           foundMovies={foundMovies}
+          savedMovies={savedMovies}
           onSaveButtonClick={handleSaveButtonClick}
         />
       ))}
