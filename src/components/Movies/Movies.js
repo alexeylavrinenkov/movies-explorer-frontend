@@ -50,15 +50,11 @@ const Movies = ({
       });
     }
 
-    console.log(isSavedMovie);
-
     if (isSavedMovie) {
-      console.log("Фильм удален");
       const savedMovie = savedMovies.find((savedMovie) => savedMovie.movieId === movie.movieId);
       
       onUnsaveMovie(savedMovie._id);
     } else {
-      console.log("Фильм сохранен");
       onSaveMovie(movie);
     }
   };

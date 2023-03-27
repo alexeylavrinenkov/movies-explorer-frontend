@@ -54,17 +54,16 @@ const App = () => {
     const token = localStorage.getItem('token');
 
     mainApi.checkToken(token)
-      .then((userData) => {
-        if (userData) {
-          console.log(userData);
-          setCurrentUser(userData);
+      .then((user) => {
+        if (user.data) {
+          setCurrentUser(user.data);
           setLoggedIn(true);
           openPopup('Вы успешно вошли в свой аккаунт!');
           navigate('/movies');
 
           return mainApi.getSavedMovies()
             .then((movies) => {
-              setSavedMovies(savedMovies);
+              setSavedMovies(movies);
             })
             .catch((err) => {
               console.error(err);
@@ -89,13 +88,8 @@ const App = () => {
   const handleSaveMovie = (movieData) => {
     mainApi.saveMovie(movieData)
       .then((savedMovie) => {
-        console.log(savedMovie, savedMovies);
-        console.log('Фильм сохранен 2')
-        if (savedMovie && savedMovies) {
-          setSavedMovies([...savedMovies, savedMovie]);
-        } else if (savedMovie) {
-          console.log('Это единственный сохраненный фильм');
-          setSavedMovies([savedMovie]);
+        if (savedMovie) {
+          setSavedMovies((movies) => [...movies, savedMovie]);
         }
       })
       .catch((err) => {
