@@ -8,10 +8,11 @@ import mainApi from '../../utils/MainApi';
 import { REQUEST_ERROR_TEXTS } from '../../utils/constants';
 import useForm from '../../utils/useForm';
 import { LoggedInContext } from '../../contexts/LoggedInContext';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 
 const Register = ({ onLogin }) => {
   const loggedIn = useContext(LoggedInContext);
+  const location = useLocation();
 
   const [requestError, setRequestError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -50,7 +51,10 @@ const Register = ({ onLogin }) => {
         
         setRequestError(message);
         
-        console.log(err.message);
+        console.log(err.status);
+        console.log(err);
+        console.log(err.split(' ')[1]);
+        console.log(err.split(' ')[1] === '409');
         console.error(err);
       });
 
@@ -58,7 +62,7 @@ const Register = ({ onLogin }) => {
   };
 
   useEffect(() => {
-    if (loggedIn) {
+    if (loggedIn && location.pathname === '/signup') {
       return <Navigate to='/movies' />;
     }
   }, [loggedIn]);

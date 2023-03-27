@@ -7,10 +7,11 @@ import mainApi from '../../utils/MainApi';
 import { REQUEST_ERROR_TEXTS } from '../../utils/constants';
 import useForm from '../../utils/useForm';
 import { LoggedInContext } from '../../contexts/LoggedInContext';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 
 const Login = ({ onLogin }) => {
   const loggedIn = useContext(LoggedInContext);
+  const location = useLocation();
 
   const [requestError, setRequestError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -51,7 +52,7 @@ const Login = ({ onLogin }) => {
   };
 
   useEffect(() => {
-    if (loggedIn) {
+    if (loggedIn && location.pathname === '/signin') {
       return <Navigate to='/movies' />;
     }
   }, [loggedIn]);

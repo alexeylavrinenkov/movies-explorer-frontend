@@ -35,11 +35,9 @@ const App = () => {
     setPopupTitle('');
   };
 
-  const handleLogin = ({ token }) => {
+  const handleLogin = (token) => {
     localStorage.setItem('token', token);
     handleCheckToken();
-    openPopup('Вы успешно вошли в свой аккаунт!');
-    navigate('/movies');
   };
 
   const handleLogout = () => {
@@ -60,6 +58,7 @@ const App = () => {
         if (userData) {
           setCurrentUser(userData);
           setLoggedIn(true);
+          openPopup('Вы успешно вошли в свой аккаунт!');
           navigate('/movies');
         }
       })
