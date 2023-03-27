@@ -13,10 +13,11 @@ const MoviesCardList = ({
   return (
     <section className='movies-card-list section' aria-label="Сохраненные фильмы">
       <ul className='movies-card-list__list list'>
-        {savedMovies.map((movie) => {
+        {foundMovies.map((movie) => {
           return (<MoviesCard
             movie={movie}
             key={movie.movieId}
+            savedMovies={savedMovies}
             onCloseButtonClick={handleCloseButtonClick}
           />);
         })}

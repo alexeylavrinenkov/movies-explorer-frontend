@@ -4,7 +4,6 @@ import Preloader from "../Preloader/Preloader";
 const SearchResults = ({
   isRequestError,
   isLoading,
-  isNothingFind,
   foundMovies,
   savedMovies,
   onSaveButtonClick
@@ -15,7 +14,7 @@ const SearchResults = ({
     </p>
   ) : (isLoading ? (
     <Preloader />
-  ) : foundMovies.length === 0 && isNothingFind ? (
+  ) : foundMovies.length === 0 ? (
     <p className='movies__not-found'>Ничего не найдено</p>
   ) : (
     <MoviesCardList

@@ -20,7 +20,6 @@ const Movies = ({
   const [allMovies, setAllMovies] = useState(null);
   const [foundMovies, setFoundMovies] = useState(defaultFoundMovies);
   const [isLoading, setIsLoading] = useState(false);
-  const [isNothingFind, setIsNothingFind] = useState(false);
   const [isRequestError, setIsRequestError] = useState(false);
   const [areShortMoviesSelected, setAreShortMoviesSelected] = useState(defaultAreShortMoviesSelected);
   const [searchText, setSearchText] = useState(defaultSearchText);
@@ -112,7 +111,6 @@ const Movies = ({
         <SearchResults
           isRequestError={isRequestError}
           isLoading={isLoading}
-          isNothingFind={isNothingFind}
           foundMovies={foundMovies}
           savedMovies={savedMovies}
           onSaveButtonClick={handleSaveButtonClick}

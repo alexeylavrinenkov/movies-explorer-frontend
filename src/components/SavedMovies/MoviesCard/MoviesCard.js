@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './MoviesCard.css';
 import formatMovieDuration from '../../../utils/formatMovieDuration';
 
-const MoviesCard = ({ movie, onCloseButtonClick }) => {
+const MoviesCard = ({ movie, savedMovies, onCloseButtonClick }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   async function handleSaveButtonClick() {
