@@ -17,9 +17,9 @@ import mainApi from '../../utils/MainApi';
 import Popup from '../Popup/Popup';
 
 const App = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
   const [currentUser, setCurrentUser] = useState();
-  const [savedMovies, setSavedMovies] = useState(null);
+  const [savedMovies, setSavedMovies] = useState([]);
   const [popupTitle, setPopupTitle] = useState('');
   const [isOpenPopup, setIsOpenPopup] = useState(false);
 
@@ -92,7 +92,7 @@ const App = () => {
   const handleSaveMovie = (movieData) => {
     mainApi.saveMovie(movieData)
       .then((savedMovie) => {
-        if (savedMovie && savedMovies.length >= 1) {
+        if (savedMovie && savedMovies) {
           setSavedMovies([...savedMovies, savedMovie]);
         } else if (savedMovie) {
           setSavedMovies([savedMovie]);

@@ -39,10 +39,10 @@ const Register = ({ onLogin }) => {
       .catch((err) => {
         let message;
         
-        if (err.message === '409') {
+        if (err.split(' ')[1] === '409') {
           message = REQUEST_ERROR_TEXTS.USER_ALREADY_EXISTS;
         }
-        else if (err.message === '500') {
+        else if (err.split(' ')[1] === '500') {
           message = REQUEST_ERROR_TEXTS.INTERNAL_SERVER_ERROR;
         }
         else {
@@ -50,12 +50,6 @@ const Register = ({ onLogin }) => {
         }
         
         setRequestError(message);
-        
-        console.log(err.status);
-        console.log(err);
-        console.log(err.split(' ')[1]);
-        console.log(err.split(' ')[1] === '409');
-        console.error(err);
       });
 
     setIsLoading(false);
