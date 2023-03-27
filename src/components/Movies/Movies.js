@@ -6,6 +6,7 @@ import MoviesCardList from './MoviesCardList/MoviesCardList';
 import moviesApi from '../../utils/MoviesApi';
 import searchMovies from '../../utils/searchMovies';
 import formatMovies from '../../utils/formatMovies';
+import SearchResults from './SearchResults/SearchResults';
 
 const Movies = ({ 
   onSaveMovie, 
@@ -19,13 +20,15 @@ const Movies = ({
   const [allMovies, setAllMovies] = useState(null);
   const [foundMovies, setFoundMovies] = useState(defaultFoundMovies);
   const [isLoading, setIsLoading] = useState(false);
+  const [isNothingFind, setIsNothingFind] = useState(false);
   const [isRequestError, setIsRequestError] = useState(false);
   const [areShortMoviesSelected, setAreShortMoviesSelected] = useState(defaultAreShortMoviesSelected);
   const [searchText, setSearchText] = useState(defaultSearchText);
 
   const getMovies = () => {
-    setIsLoading(true);
     setIsRequestError(false);
+    isNothingFind(false);
+    setIsLoading(true);
 
     moviesApi.getMovies()
       .then((movies) => {
@@ -39,6 +42,7 @@ const Movies = ({
       });
 
     setIsLoading(false);
+    isNothingFind(true);
   };
 
   const handleSaveButtonClick = (movie) => {
@@ -104,20 +108,16 @@ const Movies = ({
         defaultAreShortMoviesSelected={areShortMoviesSelected} 
       />
 
-      {searchText && (isLoading ? (
-        <Preloader />
-      ) : foundMovies.length === 0 ? (
-        <p className='movies__not-found'>Ничего не найдено</p>
-      ) : isRequestError ? (
-        <p className='movies__error'>
-          Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз
-        </p>
-      ) : (
-        <MoviesCardList
+      {searchText && (
+        <SearchResults
+          isRequestError={isRequestError}
+          isLoading={isLoading}
+          isNothingFind={isNothingFind}
           foundMovies={foundMovies}
+          savedMovies={savedMovies}
           onSaveButtonClick={handleSaveButtonClick}
         />
-      ))}
+      )}
     </main>
   );
 };
