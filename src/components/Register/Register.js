@@ -25,14 +25,21 @@ const Register = ({ onLogin }) => {
         const { email, password } = values;
 
         return mainApi.login({ email, password })
-          .then(({ token }) => {
+          .then((token) => {
+            console.log(token);
             if (token) {
+              console.log(token);
+              console.log(token.token);
               onLogin(token);
             }
           });
       })
       .catch((err) => {
         let message;
+
+        console.log(err.message);
+        console.log(err.message === '409');
+        console.log(err.message === 409);
 
         if (err.message === '409') {
           message = REQUEST_ERROR_TEXTS.USER_ALREADY_EXISTS;
@@ -43,6 +50,8 @@ const Register = ({ onLogin }) => {
         else {
           message = REQUEST_ERROR_TEXTS.SIGNUP_ERROR;
         }
+
+        console.log(message);
 
         setRequestError(message);
 
