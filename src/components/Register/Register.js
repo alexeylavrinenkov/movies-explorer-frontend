@@ -29,7 +29,7 @@ const Register = ({ onLogin }) => {
         const { email, password } = values;
 
         return mainApi.login({ email, password })
-          .then((token) => {
+          .then(({ token }) => {
             if (token) {
               onLogin(token);
             }
@@ -37,7 +37,7 @@ const Register = ({ onLogin }) => {
       })
       .catch((err) => {
         let message;
-
+        
         if (err.message === '409') {
           message = REQUEST_ERROR_TEXTS.USER_ALREADY_EXISTS;
         }
@@ -47,9 +47,10 @@ const Register = ({ onLogin }) => {
         else {
           message = REQUEST_ERROR_TEXTS.SIGNUP_ERROR;
         }
-
+        
         setRequestError(message);
-
+        
+        console.log(err.message);
         console.error(err);
       });
 

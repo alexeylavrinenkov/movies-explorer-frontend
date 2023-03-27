@@ -4,7 +4,7 @@ import More from '../More/More';
 import MoviesCard from '../MoviesCard/MoviesCard';
 import './MoviesCardList.css';
 
-const MoviesCardList = ({ foundMovies, onSaveButtonClick }) => {
+const MoviesCardList = ({ foundMovies, savedMovies, onSaveButtonClick }) => {
   const [shownMovies, setShownMovies] = useState([]);
   const moviesCardListElement = useRef();
 
@@ -13,7 +13,17 @@ const MoviesCardList = ({ foundMovies, onSaveButtonClick }) => {
     const numberOfShownMovies = Math.ceil(shownMovies.length / numberOfColumns) * numberOfColumns;
 
     setShownMovies(foundMovies.slice(0, numberOfShownMovies + NUMBER_OF_SHOWN_MOVIES_BY_COLUMNS[numberOfColumns].ADD));
-  }
+  };
+
+  const getSaveButtonStatus = (movie) => {
+    let isSaved = false;
+    
+    if (savedMovies) {
+      isSaved = savedMovies.some((savedMovie) => savedMovie.movieId === movie.movieId);
+    }
+
+    return isSaved;
+  };
 
   useEffect(() => {
     if (foundMovies.length) {
@@ -28,7 +38,7 @@ const MoviesCardList = ({ foundMovies, onSaveButtonClick }) => {
       <section className='movies-card-list section' aria-label="Фильмы">
         <ul className='movies-card-list__list list' ref={moviesCardListElement}>
           {shownMovies.map((movie) => {
-            return (<MoviesCard key={movie.movieId} movie={movie} onSaveButtonClick={onSaveButtonClick} />);
+            return (<MoviesCard key={movie.movieId} movie={movie} isSavedMovie={getSaveButtonStatus(movie)} onSaveButtonClick={onSaveButtonClick} />);
           })}
         </ul>
       </section>

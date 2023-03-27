@@ -50,14 +50,16 @@ const Movies = ({
       });
     }
 
+    console.log(isSavedMovie);
+
     if (isSavedMovie) {
       const savedMovie = savedMovies.find((savedMovie) => {
         return savedMovie.movieId === movie.movieId;
       });
       
-      return onUnsaveMovie(savedMovie);
+      onUnsaveMovie(savedMovie._id);
     } else {
-      return onSaveMovie(movie);
+      onSaveMovie(movie);
     }
   };
   
@@ -106,7 +108,7 @@ const Movies = ({
         defaultAreShortMoviesSelected={areShortMoviesSelected} 
       />
 
-      {!searchText ? '' : isLoading ? (
+      {searchText && (isLoading ? (
         <Preloader />
       ) : foundMovies.length === 0 ? (
         <p className='movies__not-found'>Ничего не найдено</p>
@@ -119,7 +121,7 @@ const Movies = ({
           foundMovies={foundMovies}
           onSaveButtonClick={handleSaveButtonClick}
         />
-      )}
+      ))}
     </main>
   );
 };

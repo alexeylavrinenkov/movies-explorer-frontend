@@ -17,7 +17,7 @@ import mainApi from '../../utils/MainApi';
 import Popup from '../Popup/Popup';
 
 const App = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
   const [currentUser, setCurrentUser] = useState();
   const [savedMovies, setSavedMovies] = useState(null);
   const [popupTitle, setPopupTitle] = useState('');
@@ -35,10 +35,10 @@ const App = () => {
     setPopupTitle('');
   };
 
-  const handleLogin = (token) => {
-    openPopup('Вы успешно вошли в свой аккаунт!');
+  const handleLogin = ({ token }) => {
     localStorage.setItem('token', token);
-    handleCheckToken(token);
+    handleCheckToken();
+    openPopup('Вы успешно вошли в свой аккаунт!');
     navigate('/movies');
   };
 
@@ -94,7 +94,7 @@ const App = () => {
     mainApi.saveMovie(movieData)
       .then((savedMovie) => {
         if (savedMovie) {
-          setSavedMovies([...savedMovies, savedMovie]);
+          setSavedMovies((movies) => [...movies, savedMovie]);
         }
       })
       .catch((err) => {
@@ -104,12 +104,10 @@ const App = () => {
 
   const handleUnsaveMovie = (movieId) => {
     mainApi.unsaveMovie(movieId)
-      .then((unsavedMovie) => {
-        if (unsavedMovie) {
-          setSavedMovies(savedMovies.filter((movie) => {
-            return movie._id !== unsavedMovie._id;
-          }));
-        }
+      .then(() => {
+        setSavedMovies(savedMovies.filter((movie) => {
+          return movie._id !== movieId;
+        }));
       })
       .catch((err) => {
         console.error(err);

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './MoviesCard.css';
 import formatMovieDuration from '../../../utils/formatMovieDuration';
+import { MOVIES_API_BASE_URL } from '../../../utils/constants';
 
-const MoviesCard = ({ movie, onSaveButtonClick }) => {
+const MoviesCard = ({ movie, isSavedMovie, onSaveButtonClick }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   async function handleSaveButtonClick() {
@@ -21,12 +22,12 @@ const MoviesCard = ({ movie, onSaveButtonClick }) => {
         target='_blank'
         className='movies-card__link link'
       >
-          <img src={movie.image} alt={movie.nameRU} className='movies-card__img img'/>
+          <img src={MOVIES_API_BASE_URL + movie.image.url} alt={movie.nameRU} className='movies-card__img img'/>
       </a>
       <div className='movies-card__container'>
         <div className='movies-card__title-container'>
           <h3 className='movies-card__title'>{movie.nameRU}</h3>
-          <button type='button' className='movies-card__like-button link' onClick={handleSaveButtonClick} disabled={isLoading} />
+          <button type='button' className={`movies-card__like-button link ${isSavedMovie ? 'movies-card__like-button_active' : ''}`} onClick={handleSaveButtonClick} disabled={isLoading} />
         </div>
         <p className='movies-card__duration'>{formatMovieDuration(movie.duration)}</p>
       </div>

@@ -46,7 +46,7 @@ const SavedMovies = ({ savedMovies, onUnsaveMovie }) => {
         defaultSearchText={searchText}
         defaultAreShortMoviesSelected={areShortMoviesSelected}
       />
-      {!searchText ? '' : foundMovies.length === 0 ? (
+      {searchText && (foundMovies.length === 0 ? (
         <p className='movies__not-found'>Ничего не найдено</p>
       ) : (
         <MoviesCardList
@@ -54,7 +54,7 @@ const SavedMovies = ({ savedMovies, onUnsaveMovie }) => {
           savedMovies={savedMovies}
           onSaveButtonClick={handleUnsaveButtonClick}
         />
-      )}
+      ))}
       <Devider />
     </main>
   );
