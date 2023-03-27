@@ -26,7 +26,6 @@ const Movies = ({
 
   const getMovies = () => {
     setIsRequestError(false);
-    isNothingFind(false);
     setIsLoading(true);
 
     moviesApi.getMovies()
@@ -41,7 +40,6 @@ const Movies = ({
       });
 
     setIsLoading(false);
-    isNothingFind(true);
   };
 
   const handleSaveButtonClick = (movie) => {
