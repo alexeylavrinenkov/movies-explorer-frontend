@@ -188,13 +188,11 @@ const App = () => {
           />
           <Route
             exact path="/signin"
-            element={<Login />}
-            onLogin={handleLogin}
+            element={<Login onLogin={handleLogin} />}
           />
           <Route
             exact path="/signup"
-            element={<Register />}
-            onLogin={handleLogin}
+            element={<Register onLogin={handleLogin} />}
           />
 
           <Route path="*" element={<PageNotFound />} />

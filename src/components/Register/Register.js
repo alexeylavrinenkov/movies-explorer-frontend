@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './Register.css';
 import Auth from './../Auth/Auth';
 import NameAuthInput from '../Auth/NameAuthInput/NameAuthInput';
@@ -7,8 +7,12 @@ import PasswordAuthInput from '../Auth/PasswordAuthInput/PasswordAuthInput';
 import mainApi from '../../utils/MainApi';
 import { REQUEST_ERROR_TEXTS } from '../../utils/constants';
 import useForm from '../../utils/useForm';
+import { LoggedInContext } from '../../contexts/LoggedInContext';
+import { Navigate } from 'react-router-dom';
 
 const Register = ({ onLogin }) => {
+  const loggedIn = useContext(LoggedInContext);
+
   const [requestError, setRequestError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
@@ -26,20 +30,13 @@ const Register = ({ onLogin }) => {
 
         return mainApi.login({ email, password })
           .then((token) => {
-            console.log(token);
             if (token) {
-              console.log(token);
-              console.log(token.token);
               onLogin(token);
             }
           });
       })
       .catch((err) => {
         let message;
-
-        console.log(err.message);
-        console.log(err.message === '409');
-        console.log(err.message === 409);
 
         if (err.message === '409') {
           message = REQUEST_ERROR_TEXTS.USER_ALREADY_EXISTS;
@@ -51,15 +48,19 @@ const Register = ({ onLogin }) => {
           message = REQUEST_ERROR_TEXTS.SIGNUP_ERROR;
         }
 
-        console.log(message);
-
         setRequestError(message);
 
         console.error(err);
       });
 
     setIsLoading(false);
-  }
+  };
+
+  useEffect(() => {
+    if (loggedIn) {
+      return <Navigate to='/movies' />;
+    }
+  }, [loggedIn]);
 
   return (
     <Auth

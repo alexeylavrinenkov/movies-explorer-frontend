@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './Login.css';
 import Auth from './../Auth/Auth';
 import EmailAuthInput from './../Auth/EmailAuthInput/EmailAuthInput';
@@ -6,8 +6,12 @@ import PasswordAuthInput from './../Auth/PasswordAuthInput/PasswordAuthInput';
 import mainApi from '../../utils/MainApi';
 import { REQUEST_ERROR_TEXTS } from '../../utils/constants';
 import useForm from '../../utils/useForm';
+import { LoggedInContext } from '../../contexts/LoggedInContext';
+import { Navigate } from 'react-router-dom';
 
 const Login = ({ onLogin }) => {
+  const loggedIn = useContext(LoggedInContext);
+
   const [requestError, setRequestError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   
@@ -44,7 +48,13 @@ const Login = ({ onLogin }) => {
       });
 
     setIsLoading(false);
-  }
+  };
+
+  useEffect(() => {
+    if (loggedIn) {
+      return <Navigate to='/movies' />;
+    }
+  }, [loggedIn]);
 
   return (
     <Auth
