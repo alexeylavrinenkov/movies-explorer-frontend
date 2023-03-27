@@ -1,4 +1,3 @@
-import React, { useEffect, useRef, useState } from 'react';
 import './MoviesCardList.css';
 import MoviesCard from './../MoviesCard/MoviesCard';
 
