@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './Movies.css';
 import SearchForm from './SearchForm/SearchForm';
-import Preloader from './Preloader/Preloader';
-import MoviesCardList from './MoviesCardList/MoviesCardList';
 import moviesApi from '../../utils/MoviesApi';
 import searchMovies from '../../utils/searchMovies';
 import formatMovies from '../../utils/formatMovies';
+import SearchResults from './SearchResults/SearchResults';
 
 const Movies = ({ 
   onSaveMovie, 
@@ -24,8 +23,8 @@ const Movies = ({
   const [searchText, setSearchText] = useState(defaultSearchText);
 
   const getMovies = () => {
-    setIsLoading(true);
     setIsRequestError(false);
+    setIsLoading(true);
 
     moviesApi.getMovies()
       .then((movies) => {
@@ -104,21 +103,15 @@ const Movies = ({
         defaultAreShortMoviesSelected={areShortMoviesSelected} 
       />
 
-      {searchText && (isLoading ? (
-        <Preloader />
-      ) : foundMovies.length === 0 ? (
-        <p className='movies__not-found'>Ничего не найдено</p>
-      ) : isRequestError ? (
-        <p className='movies__error'>
-          Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз
-        </p>
-      ) : (
-        <MoviesCardList
+      {searchText && (
+        <SearchResults
+          isRequestError={isRequestError}
+          isLoading={isLoading}
           foundMovies={foundMovies}
           savedMovies={savedMovies}
           onSaveButtonClick={handleSaveButtonClick}
         />
-      ))}
+      )}
     </main>
   );
 };

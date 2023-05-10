@@ -3,6 +3,7 @@ import './MoviesCard.css';
 import formatMovieDuration from '../../../utils/formatMovieDuration';
 
 const MoviesCard = ({ movie, savedMovies, onSaveButtonClick }) => {
+const MoviesCard = ({ movie, savedMovies, onSaveButtonClick }) => {
   const [isLoading, setIsLoading] = useState(false);
   let isSaved;
   if (savedMovies) {
@@ -30,6 +31,7 @@ const MoviesCard = ({ movie, savedMovies, onSaveButtonClick }) => {
       <div className='movies-card__container'>
         <div className='movies-card__title-container'>
           <h3 className='movies-card__title'>{movie.nameRU}</h3>
+          <button type='button' className={`movies-card__like-button link ${isSaved ? 'movies-card__like-button_active' : ''}`} onClick={handleSaveButtonClick} disabled={isLoading} />
           <button type='button' className={`movies-card__like-button link ${isSaved ? 'movies-card__like-button_active' : ''}`} onClick={handleSaveButtonClick} disabled={isLoading} />
         </div>
         <p className='movies-card__duration'>{formatMovieDuration(movie.duration)}</p>
