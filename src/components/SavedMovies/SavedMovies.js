@@ -10,12 +10,12 @@ const SavedMovies = ({ savedMovies, onUnsaveMovie }) => {
   const [areShortMoviesSelected, setAreShortMoviesSelected] = useState(false);
   const [foundMovies, setFoundMovies] = useState(savedMovies);
 
-  const handleUnsaveButtonClick = (movie) => {
+  const handleUnsaveMovie = (movie) => {
     const savedMovie = savedMovies.find((savedMovie) => {
       return movie.movieId === savedMovie.movieId;
     });
 
-    return onUnsaveMovie(savedMovie);
+    return onUnsaveMovie(savedMovie._id);
   };
 
   const handleCheckboxChange = (value) => {
@@ -46,15 +46,19 @@ const SavedMovies = ({ savedMovies, onUnsaveMovie }) => {
         defaultSearchText={searchText}
         defaultAreShortMoviesSelected={areShortMoviesSelected}
       />
-      {searchText && (foundMovies.length === 0 ? (
+      {searchText && foundMovies.length === 0 ? (
         <p className='movies__not-found'>Ничего не найдено</p>
       ) : (
         <MoviesCardList
-          foundMovies={foundMovies}
-          savedMovies={savedMovies}
-          onSaveButtonClick={handleUnsaveButtonClick}
+          movies={foundMovies}
+          onUnsaveMovie={handleUnsaveMovie}
         />
-      ))}
+      ) || 
+      (<MoviesCardList
+        movies={savedMovies}
+        onUnsaveMovie={handleUnsaveMovie}
+      />
+      )}
       <Devider />
     </main>
   );

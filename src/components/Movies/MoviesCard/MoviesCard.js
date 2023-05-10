@@ -4,7 +4,10 @@ import formatMovieDuration from '../../../utils/formatMovieDuration';
 
 const MoviesCard = ({ movie, savedMovies, onSaveButtonClick }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const isSaved = savedMovies.some((savedMovie) => savedMovie.movieId === movie.movieId);
+  let isSaved;
+  if (savedMovies) {
+    isSaved = savedMovies.some((savedMovie) => savedMovie.movieId === movie.movieId);
+  }
 
   async function handleSaveButtonClick() {
     setIsLoading(true);

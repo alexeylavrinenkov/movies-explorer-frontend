@@ -32,13 +32,13 @@ const Movies = ({
         const formattedMovies = movies.map(formatMovies);
 
         setAllMovies(formattedMovies);
+        setIsLoading(false);
       })
       .catch((err) => {
         setIsRequestError(true);
+        setIsLoading(false);
         console.error(err);
       });
-
-    setIsLoading(false);
   };
 
   const handleSaveButtonClick = (movie) => {

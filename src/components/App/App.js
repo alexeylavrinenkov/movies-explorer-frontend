@@ -17,7 +17,7 @@ import mainApi from '../../utils/MainApi';
 import Popup from '../Popup/Popup';
 
 const App = () => {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [savedMovies, setSavedMovies] = useState([]);
   const [popupTitle, setPopupTitle] = useState('');
@@ -58,7 +58,6 @@ const App = () => {
         if (user.data) {
           setCurrentUser(user.data);
           setLoggedIn(true);
-          openPopup('Вы успешно вошли в свой аккаунт!');
           navigate('/movies');
 
           return mainApi.getSavedMovies()
@@ -142,6 +141,7 @@ const App = () => {
                 <Movies
                   onSaveMovie={handleSaveMovie}
                   onUnsaveMovie={handleUnsaveMovie}
+                  savedMovies={savedMovies}
                 />
               </ProtectedRoute>
             }

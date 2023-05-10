@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import './MoviesCard.css';
 import formatMovieDuration from '../../../utils/formatMovieDuration';
 
-const MoviesCard = ({ movie, onCloseButtonClick }) => {
+const MoviesCard = ({ movie, onUnsaveMovie }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   async function handleCloseButtonClick() {
     setIsLoading(true);
 
-    await onCloseButtonClick(movie);
+    await onUnsaveMovie(movie);
 
     setIsLoading(false);
   }
