@@ -3,7 +3,6 @@ import './MoviesCard.css';
 import formatMovieDuration from '../../../utils/formatMovieDuration';
 
 const MoviesCard = ({ movie, savedMovies, onSaveButtonClick }) => {
-const MoviesCard = ({ movie, savedMovies, onSaveButtonClick }) => {
   const [isLoading, setIsLoading] = useState(false);
   let isSaved;
   if (savedMovies) {
