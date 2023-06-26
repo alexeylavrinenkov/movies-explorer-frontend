@@ -9,7 +9,7 @@
   flex-grow: 1;
 }
 
-.auth__container {
+.auth__form {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -42,23 +42,20 @@
   line-height: 1.2;
 }
 
-.auth__form {
+.auth__container {
   margin: 0 0 50px;
   display: flex;
   flex-direction: column;
 }
 
 .auth__error-text {
-  display: none;
-  margin: 0 auto 20px;
+  display: block;
+  min-height: 26px;
+  margin: 0 auto 7px;
   font-weight: 400;
   font-size: 11px;
   line-height: 1.2;
   color: #EE3465;
-}
-
-.auth__error-text_active {
-  display: block;
 }
 
 .auth__submit-button {

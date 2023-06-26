@@ -1,21 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './MoviesCard.css';
-import img from '../../../images/33-words-about-design.jpg';
+import formatMovieDuration from '../../../utils/formatMovieDuration';
 
-const MoviesCard = ({title, duration}) => {
+const MoviesCard = ({ movie, onUnsaveMovie }) => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  async function handleCloseButtonClick() {
+    setIsLoading(true);
+
+    await onUnsaveMovie(movie);
+
+    setIsLoading(false);
+  }
+
   return (
     <li className='movies-card'>
       <a
-        href="/movies"
+        href={movie.trailerLink}
         rel="noreferrer"
         target="_blank"
-        className='movies-card__link link'><img src={img} alt={title} className='movies-card__img img'/></a>
+        className='movies-card__link link'><img src={movie.image} alt={movie.nameRU} className='movies-card__img img'/></a>
       <div className='movies-card__container'>
         <div className='movies-card__title-container'>
-          <h3 className='movies-card__title'>{title}</h3>
-          <button type='button' className='movies-card__close-button link'/>
+          <h3 className='movies-card__title'>{movie.nameRU}</h3>
+          <button type='button' className='movies-card__close-button link' onClick={handleCloseButtonClick} disabled={isLoading} />
         </div>
-        <p className='movies-card__duration'>{duration}</p>
+        <p className='movies-card__duration'>{formatMovieDuration(movie.duration)}</p>
       </div>
     </li>
   );

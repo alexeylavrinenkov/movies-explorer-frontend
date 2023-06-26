@@ -1,21 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './MoviesCard.css';
-import img from '../../../images/33-words-about-design.jpg';
+import formatMovieDuration from '../../../utils/formatMovieDuration';
 
-const MoviesCard = ({title, duration}) => {
+const MoviesCard = ({ movie, savedMovies, onSaveButtonClick }) => {
+  const [isLoading, setIsLoading] = useState(false);
+  let isSaved;
+  if (savedMovies) {
+    isSaved = savedMovies.some((savedMovie) => savedMovie.movieId === movie.movieId);
+  }
+
+  async function handleSaveButtonClick() {
+    setIsLoading(true);
+
+    await onSaveButtonClick(movie);
+
+    setIsLoading(false);
+  }
+
   return (
     <li className='movies-card'>
       <a
-        href="/movies"
-        rel="noreferrer"
-        target="_blank"
-        className='movies-card__link link'><img src={img} alt={title} className='movies-card__img img'/></a>
+        href={movie.trailerLink}
+        rel='noreferrer'
+        target='_blank'
+        className='movies-card__link link'
+      >
+          <img src={movie.image} alt={movie.nameRU} className='movies-card__img img'/>
+      </a>
       <div className='movies-card__container'>
         <div className='movies-card__title-container'>
-          <h3 className='movies-card__title'>{title}</h3>
-          <button type='button' className='movies-card__like-button link'/>
+          <h3 className='movies-card__title'>{movie.nameRU}</h3>
+          <button type='button' className={`movies-card__like-button link ${isSaved ? 'movies-card__like-button_active' : ''}`} onClick={handleSaveButtonClick} disabled={isLoading} />
         </div>
-        <p className='movies-card__duration'>{duration}</p>
+        <p className='movies-card__duration'>{formatMovieDuration(movie.duration)}</p>
       </div>
     </li>
   );

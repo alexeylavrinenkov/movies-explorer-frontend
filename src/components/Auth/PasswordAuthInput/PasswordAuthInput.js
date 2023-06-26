@@ -1,7 +1,7 @@
 import React from 'react';
 import AuthInput from './../AuthInput/AuthInput';
 
-const PasswordAuthInput = () => {
+const PasswordAuthInput = ({ ...validationParams }) => {
   return (
     <AuthInput
       labelText='Пароль'
@@ -9,6 +9,7 @@ const PasswordAuthInput = () => {
       name='password'
       placeholder='Введите пароль'
       required
+      {...validationParams}
     />
   );
 };

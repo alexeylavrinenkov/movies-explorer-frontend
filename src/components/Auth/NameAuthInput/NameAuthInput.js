@@ -1,7 +1,7 @@
 import React from 'react';
 import AuthInput from '../AuthInput/AuthInput';
 
-const NameAuthInput = () => {
+const NameAuthInput = ({ ...validationParams }) => {
   return (
     <AuthInput
       labelText='Имя'
@@ -10,7 +10,9 @@ const NameAuthInput = () => {
       placeholder='Введите имя'
       minLength='2'
       maxLength='30'
+      pattern='[A-Za-zА-Яа-яЁё\s-]+'
       required
+      {...validationParams}
     />
   );
 };

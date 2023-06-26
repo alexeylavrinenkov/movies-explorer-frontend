@@ -15,19 +15,6 @@
   column-gap: 24px;
 }
 
-.movies-card-list__not-found {
-  display: none;
-  margin: 0 auto;
-  font-size: 28px;
-  font-weight: 400;
-  line-height: 1.2;
-  color: #8B8B8B;
-}
-
-.movies-card-list__not-found_active {
-  display: block;
-}
-
 @media screen and (max-width: 1280px) {
   .movies-card-list {
     padding-bottom: 30px;
